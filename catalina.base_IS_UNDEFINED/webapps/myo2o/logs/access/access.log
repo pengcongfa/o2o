@@ -1,0 +1,10 @@
+2019-02-28 16:25:12.761 [main] DEBUG com.ssm.o2o.dao.ShopDao.insertShop -
+				==>  Preparing: insert into tb_shop(owner_id,area_id,shop_category_id, shop_name,shop_desc,shop_addr,phone,shop_img,priority, create_time,last_edit_time,enable_status,advice ) values (?,?,?, ?,?,?,?,?,?, ?,?,?,? ) 
+2019-02-28 16:25:12.792 [main] DEBUG com.ssm.o2o.dao.ShopDao.insertShop -
+				==> Parameters: 1(Long), 2(Integer), 1(Long), 测试的店铺(String), test(String), test(String), test(String), test(String), null, 2019-02-28 16:25:12.377(Timestamp), null, 1(Integer), 审核中(String)
+2019-02-28 16:26:23.800 [main] DEBUG com.ssm.o2o.dao.ShopDao.insertShop -
+				==>  Preparing: insert into tb_shop(owner_id,area_id,shop_category_id, shop_name,shop_desc,shop_addr,phone,shop_img,priority, create_time,last_edit_time,enable_status,advice ) values (?,?,?, ?,?,?,?,?,?, ?,?,?,? ) 
+2019-02-28 16:26:23.824 [main] DEBUG com.ssm.o2o.dao.ShopDao.insertShop -
+				==> Parameters: 1(Long), 3(Integer), 1(Long), 测试的店铺(String), test(String), test(String), test(String), test(String), null, 2019-02-28 16:26:23.456(Timestamp), null, 1(Integer), 审核中(String)
+2019-02-28 16:26:23.839 [main] DEBUG com.ssm.o2o.dao.ShopDao.insertShop -
+				<==    Updates: 1
