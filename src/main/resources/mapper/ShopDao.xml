@@ -3,6 +3,68 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssm.o2o.dao.ShopDao">
+    <resultMap  id="ShopMap" type="com.ssm.o2o.entity.Shop">
+        <id column="shop_id" property="shopId"/>
+        <result column="shop_name" property="shopName"/>
+        <result column="shop_desc" property="shopDesc"/>
+        <result column="shop_addr" property="shopAddr"/>
+        <result column="phone" property="phone"/>
+        <result column="shop_img" property="shopImg"/>
+        <result column="priority" property="priority"/>
+        <result column="create_time" property="createTime"/>
+        <result column="last_edit_time" property="lastEditTime"/>
+        <result column="enable_status" property="enableStatus"/>
+        <result column="advice" property="advice"/>
+       	<association column="owner_id" property="owner" javaType="com.ssm.o2o.entity.PersonInfo">
+       	    <id column="owner_id" property="userId"/>
+       	</association>
+       	<association column="area_id" property="area" javaType="com.ssm.o2o.entity.Area">
+       	    <id column="area_id" property="areaId" />
+       	</association>
+       	<association column="shop_category_id" property="shopCategory" javaType="com.ssm.o2o.entity.ShopCategory">
+       	    <id column="shop_category_id" property="shopCategoryId"/>
+       	</association>
+    </resultMap>
+    
+    <select id="findShopList" resultMap="ShopMap">
+        SELECT 
+        shop_id,
+		owner_id,
+		area_id,
+		shop_category_id,
+		shop_name,
+		shop_desc,
+		shop_addr,
+		phone,
+		shop_img,
+		priority,
+		create_time,
+		last_edit_time,
+		enable_status,advice
+		from tb_shop
+    </select> 
+    
+     <select id="findShopById"  parameterType="java.lang.Long" resultMap="ShopMap">
+        SELECT 
+        shop_id,
+		owner_id,
+		area_id,
+		shop_category_id,
+		shop_name,
+		shop_desc,
+		shop_addr,
+		phone,
+		shop_img,
+		priority,
+		create_time,
+		last_edit_time,
+		enable_status,advice
+		from tb_shop
+		where shop_id=#{shopId}
+     </select>
+    
+    
+    
 	<insert id="insertShop" useGeneratedKeys="true"
 		keyColumn="shop_id" keyProperty="shopId">
 		insert into
@@ -17,4 +79,30 @@
 		)
 	</insert>
 
+	<!-- 动态sql set拼接 if-test根据条件决定添加 -->
+	<update id="updateShop" parameterType="com.ssm.o2o.entity.Shop">
+	    
+		update tb_shop
+		<set>
+			<if test="shopName != null  ">shop_name=#{shopName},</if>
+			<if test="shopDesc != null ">shop_desc=#{shopDesc},</if>
+			<if test="shopAddr != null  ">shop_addr=#{shopAddr},</if>
+			<if test="lastEditTime != null ">last_edit_time=#{lastEditTime},</if>
+			<if test="phone != null ">phone=#{phone},</if>
+	    	<if test="shopImg != null">shop_img=#{shopImg},</if> 
+			<if test="priority != null">priority=#{priority},</if>		
+			<if test="enableStatus != null">enable_status=#{enableStatus},</if>
+			<if test="advice != null">advice=#{advice},</if>
+			<if test="shopCategory != null">shop_category_id=#{shopCategory.shopCategoryId},</if>
+			<if test="area != null">area_id=#{area.areaId}</if>
+		</set>
+		where shop_id=#{shopId}
+	</update>
+	
+	
+	<delete id="deleteShop" parameterType="java.lang.Long">
+	    delete from tb_shop where shop_id=#{shopId}
+	</delete>
+	
+	
 </mapper>

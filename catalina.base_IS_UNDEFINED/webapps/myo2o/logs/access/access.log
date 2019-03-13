@@ -1,10 +1,18 @@
-2019-02-28 16:25:12.761 [main] DEBUG com.ssm.o2o.dao.ShopDao.insertShop -
+2019-03-10 15:26:54.145 [main] DEBUG com.ssm.o2o.dao.ShopDao.updateShop -
+				==>  Preparing: update tb_shop SET shop_name=?, shop_desc=?, shop_addr=?, last_edit_time=?, > where shop_id=? 
+2019-03-10 15:26:54.175 [main] DEBUG com.ssm.o2o.dao.ShopDao.updateShop -
+				==> Parameters: 测试的店铺(String), 测试描述(String), 测试地址(String), 2019-03-10 15:26:53.764(Timestamp), 2(Long)
+2019-03-10 15:28:00.614 [main] DEBUG com.ssm.o2o.dao.ShopDao.updateShop -
+				==>  Preparing: update tb_shop SET shop_name=?, shop_desc=?, shop_addr=?, last_edit_time=?, > where shop_id=? 
+2019-03-10 15:28:00.637 [main] DEBUG com.ssm.o2o.dao.ShopDao.updateShop -
+				==> Parameters: 测试的店铺(String), 测试描述(String), 测试地址(String), 2019-03-10 15:28:00.218(Timestamp), 2(Long)
+2019-03-10 15:35:19.090 [main] DEBUG com.ssm.o2o.dao.ShopDao.updateShop -
+				==>  Preparing: update tb_shop SET shop_name=?, shop_desc=?, shop_addr=?, last_edit_time=?, > where shop_id=? 
+2019-03-10 15:35:19.116 [main] DEBUG com.ssm.o2o.dao.ShopDao.updateShop -
+				==> Parameters: 测试的店铺(String), 测试描述(String), 测试地址(String), 2019-03-10 15:35:18.697(Timestamp), 2(Long)
+2019-03-10 15:37:57.723 [main] DEBUG com.ssm.o2o.dao.ShopDao.insertShop -
 				==>  Preparing: insert into tb_shop(owner_id,area_id,shop_category_id, shop_name,shop_desc,shop_addr,phone,shop_img,priority, create_time,last_edit_time,enable_status,advice ) values (?,?,?, ?,?,?,?,?,?, ?,?,?,? ) 
-2019-02-28 16:25:12.792 [main] DEBUG com.ssm.o2o.dao.ShopDao.insertShop -
-				==> Parameters: 1(Long), 2(Integer), 1(Long), 测试的店铺(String), test(String), test(String), test(String), test(String), null, 2019-02-28 16:25:12.377(Timestamp), null, 1(Integer), 审核中(String)
-2019-02-28 16:26:23.800 [main] DEBUG com.ssm.o2o.dao.ShopDao.insertShop -
-				==>  Preparing: insert into tb_shop(owner_id,area_id,shop_category_id, shop_name,shop_desc,shop_addr,phone,shop_img,priority, create_time,last_edit_time,enable_status,advice ) values (?,?,?, ?,?,?,?,?,?, ?,?,?,? ) 
-2019-02-28 16:26:23.824 [main] DEBUG com.ssm.o2o.dao.ShopDao.insertShop -
-				==> Parameters: 1(Long), 3(Integer), 1(Long), 测试的店铺(String), test(String), test(String), test(String), test(String), null, 2019-02-28 16:26:23.456(Timestamp), null, 1(Integer), 审核中(String)
-2019-02-28 16:26:23.839 [main] DEBUG com.ssm.o2o.dao.ShopDao.insertShop -
+2019-03-10 15:37:57.756 [main] DEBUG com.ssm.o2o.dao.ShopDao.insertShop -
+				==> Parameters: 1(Long), 3(Integer), 1(Long), 测试的店铺insert(String), test(String), test(String), test(String), test(String), null, 2019-03-10 15:37:57.395(Timestamp), null, 1(Integer), 审核中(String)
+2019-03-10 15:37:57.772 [main] DEBUG com.ssm.o2o.dao.ShopDao.insertShop -
 				<==    Updates: 1

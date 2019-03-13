@@ -3,6 +3,13 @@ package com.ssm.o2o.entity;
 import java.util.Date;
 
 public class Shop {
+	@Override
+	public String toString() {
+		return "Shop [shopId=" + shopId + ", shopName=" + shopName + ", shopDesc=" + shopDesc + ", shopAddr=" + shopAddr
+				+ ", phone=" + phone + ", shopImg=" + shopImg + ", priority=" + priority + ", createTime=" + createTime
+				+ ", lastEditTime=" + lastEditTime + ", enableStatus=" + enableStatus + ", advice=" + advice + ", area="
+				+ area + ", owner=" + owner + ", shopCategory=" + shopCategory + "]";
+	}
 	private Long shopId;
 	private String shopName;
 	private String shopDesc;
