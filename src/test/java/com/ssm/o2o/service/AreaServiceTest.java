@@ -13,12 +13,16 @@ import com.ssm.o2o.entity.Area;
 public class AreaServiceTest extends BasicTest {
 	@Autowired
 	private AreaService areaService;
-	
-	
+
+	@Autowired
+	private CacheService cacheService;
+
 	@Test
 	public void testGetAreaList() {
-		List<Area> areaList=areaService.getAreaList();
+		List<Area> areaList = areaService.getAreaList();
 		System.out.println(areaList.get(0).getAreaName());
-		assertEquals("东苑",areaList.get(0).getAreaName());
+		assertEquals("东苑", areaList.get(0).getAreaName());
+		cacheService.removeFromCacheService("arealist");
+		areaList = areaService.getAreaList();
 	}
 }

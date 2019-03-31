@@ -26,6 +26,53 @@
        	</association>
     </resultMap>
     
+	<!--  返回分页查询结果，传入分页的起始行rowIndex和页面的记录数量大小pageSize，用LIMIT进行截取-->
+    <select id="queryShopList" parameterType="com.ssm.o2o.entity.Shop" resultMap="ShopMap">
+    	SELECT 
+        shop_id,
+		owner_id,
+		area_id,
+		shop_category_id,
+		shop_name,
+		shop_desc,
+		shop_addr,
+		phone,
+		shop_img,
+		priority,
+		create_time,
+		last_edit_time,
+		enable_status,advice
+		from tb_shop
+    	<where>
+    	     <if test="shopCondition.shopId!=null">
+                and shop_id=#{shopCondition.shopId}
+            </if>
+            <if test="shopCondition.shopName!=null">
+                and shop_name like '%${shopCondition.shopName}%'
+            </if>
+    	</where>
+    	order by priority desc
+    	LIMIT #{rowIndex},#{pageSize}
+    </select>
+    
+    <!-- 计算查询结果的总数量count,为分页做准备 -->
+    <select id="queryShopCount" parameterType="com.ssm.o2o.entity.Shop" resultType="int">
+        select count(*)
+        from tb_shop
+        <where>
+            <if test="shopCondition.shopId!=null">
+                and shop_id=#{shopCondition.shopId}
+            </if>
+            <if test="shopCondition.shopName!=null">
+                and shop_name like '%${shopCondition.shopName}%'
+            </if>
+        </where>
+    </select>
+    
+    
+   
+    
+    
     <select id="findShopList" resultMap="ShopMap">
         SELECT 
         shop_id,

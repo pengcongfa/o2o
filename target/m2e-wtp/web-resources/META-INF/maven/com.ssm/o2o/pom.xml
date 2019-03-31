@@ -117,7 +117,12 @@
     		<artifactId>thumbnailator</artifactId>
     		<version>0.4.8</version>
 		</dependency>
-    
+    	<!-- redis客户端:Jedis -->
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>2.9.0</version>
+		</dependency>
   </dependencies>
   <build>
     <finalName>o2o</finalName>
