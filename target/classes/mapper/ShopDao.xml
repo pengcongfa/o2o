@@ -134,7 +134,7 @@
 		create_time,last_edit_time,enable_status,advice
 		)
 		values
-		<foreach collection="shoplist" item="shop" separator=",">
+		<foreach collection="shoplist" item="shop" open="(" closed=")" separator="," >
 		  #{shop.owner.userId},
 		  #{shop.area.areaId},
 		  #{shop.shopCategory.shopCategoryId},
@@ -153,7 +153,7 @@
 	    <delete id="deleteForeach" parameterType="java.util.List">
 	    delete from tb_shop
 	    where shop_id in 
-	    <foreach collection="ids" item="id" separator=","> //id1,id2, 每个item之间的分隔符
+	    <foreach collection="ids" item="id" separator="," > //id1,id2, 每个item之间的分隔符
 	    	#{id}
 	    </foreach>
 	    
