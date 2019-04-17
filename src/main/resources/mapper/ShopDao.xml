@@ -27,7 +27,7 @@
     </resultMap>
     
 	<!--  返回分页查询结果，传入分页的起始行rowIndex和页面的记录数量大小pageSize，用LIMIT进行截取-->
-    <select id="queryShopList" parameterType="com.ssm.o2o.entity.Shop" resultMap="ShopMap">
+    <select id="queryShopList"  resultMap="ShopMap">
     	SELECT 
         shop_id,
 		owner_id,
@@ -126,6 +126,50 @@
 		)
 	</insert>
 
+	<insert id="insertShopsForeach" useGeneratedKeys="true" keyColumn="shop_id" keyProperty="shopId"
+	parameterType="java.util.List">
+        insert into
+        tb_shop(owner_id,area_id,shop_category_id,
+		shop_name,shop_desc,shop_addr,phone,shop_img,priority,
+		create_time,last_edit_time,enable_status,advice
+		)
+		values
+		<foreach collection="shoplist" item="shop" separator=",">
+		  #{shop.owner.userId},
+		  #{shop.area.areaId},
+		  #{shop.shopCategory.shopCategoryId},
+		  #{shop.shopName},
+		  #{shop.shopDesc},
+		  #{shop.shopAddr},
+		  #{shop.phone},
+		  #{shop.shopImg},
+		  #{shop.priority},
+		  #{shop.createTime},
+		  #{shop.lastEditTime},
+		  #{shop.enableStatus},
+		  #{shop.advice}  
+		</foreach> 
+	    <!-- 批量删除或者查找  用 in <foreach collection="java.util.List" item="id" separator=","> #{id} </foreach>
+	    <delete id="deleteForeach" parameterType="java.util.List">
+	    delete from tb_shop
+	    where shop_id in 
+	    <foreach collection="ids" item="id" separator=","> //id1,id2, 每个item之间的分隔符
+	    	#{id}
+	    </foreach>
+	    
+	    <select id="findforeach" parameterType="java.util.List" resultMap="ShopMap" >
+	    	select * from tb_shop
+	    	where shop_id in
+	    	<foreach collection="ids" item="id" separator=",">
+	    		#{id}
+	    	</foreach> 
+	    </select>
+	    -->
+	</insert>
+	
+	
+	
+	
 	<!-- 动态sql set拼接 if-test根据条件决定添加 -->
 	<update id="updateShop" parameterType="com.ssm.o2o.entity.Shop">
 	    

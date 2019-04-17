@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import com.ssm.o2o.entity.Shop;
 
 public interface ShopDao {
-	
+
 	List<Shop> queryShopList(@Param("shopCondition") Shop shopCondition, @Param("rowIndex") int rowIndex,
 			@Param("pageSize") int pageSize);
 
@@ -17,8 +17,7 @@ public interface ShopDao {
 	 * @param shopCondition
 	 * @return
 	 */
-	
-	
+
 	int queryShopCount(@Param("shopCondition") Shop shopCondition);
 
 	/**
@@ -27,13 +26,15 @@ public interface ShopDao {
 	 * @param employeeId
 	 * @return List<shop>
 	 */
-	
-	
+
 	public Shop findShopById(Long shopId);
 
 	public List<Shop> findShopList();
 
 	public int insertShop(Shop shop);
+
+	// 批量插入数据foreach
+	public int insertShopsForeach(List<Shop> shoplist); // int是批量插入成功的数据条数
 
 	public int updateShop(Shop shop);
 
@@ -47,9 +48,5 @@ public interface ShopDao {
 	 * @param pageSize
 	 * @return
 	 */
-	
-	
-
-	
 
 }
